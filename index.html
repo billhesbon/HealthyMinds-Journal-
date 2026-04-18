@@ -5,6 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Healthy Minds Journal — You Are Not Alone</title>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+  
+  <!-- Shopify Buy Button (for merchandise) -->
+  <script src="https://sdks.shopifycdn.com/buy-button/2.0.0/buybutton.js"></script>
+  
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -180,8 +184,27 @@
       display: inline-flex;
       align-items: center;
       gap: 0.5rem;
+      border: none;
+      cursor: pointer;
     }
     .btn-primary:hover { background: var(--sage-dark); transform: translateY(-2px); box-shadow: 0 10px 28px rgba(30,58,47,0.25); }
+
+    .btn-secondary {
+      background: var(--sage);
+      color: white;
+      font-size: 0.9rem;
+      font-weight: 700;
+      padding: 0.9rem 2.2rem;
+      border-radius: 50px;
+      text-decoration: none;
+      transition: var(--trans);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      border: none;
+      cursor: pointer;
+    }
+    .btn-secondary:hover { background: var(--sage-dark); transform: translateY(-2px); }
 
     .btn-outline {
       border: 1.5px solid var(--border);
@@ -192,8 +215,31 @@
       border-radius: 50px;
       text-decoration: none;
       transition: var(--trans);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: transparent;
+      cursor: pointer;
     }
     .btn-outline:hover { border-color: var(--sage); color: var(--sage-dark); }
+
+    .btn-donate {
+      background: var(--rose);
+      color: white;
+      font-size: 1rem;
+      font-weight: 700;
+      padding: 1.2rem 3rem;
+      border-radius: 50px;
+      text-decoration: none;
+      transition: var(--trans);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 4px 15px rgba(201,122,106,0.3);
+    }
+    .btn-donate:hover { background: #b86858; transform: translateY(-2px); box-shadow: 0 8px 25px rgba(201,122,106,0.4); }
 
     .hero-micro {
       display: flex;
@@ -458,6 +504,199 @@
       transition: var(--trans);
     }
     .service-card:hover .sc-link { gap: 0.7rem; }
+
+    /* DONATION SECTION */
+    #donate {
+      background: linear-gradient(135deg, var(--rose-light) 0%, var(--cream) 100%);
+      padding: 7rem 6vw;
+      text-align: center;
+    }
+    .donate-container {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    .donate-amounts {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin: 2rem 0;
+    }
+    .donate-btn {
+      background: white;
+      border: 2px solid var(--border);
+      color: var(--forest);
+      font-size: 1.1rem;
+      font-weight: 700;
+      padding: 1rem 2rem;
+      border-radius: 50px;
+      cursor: pointer;
+      transition: var(--trans);
+      text-decoration: none;
+      display: inline-block;
+    }
+    .donate-btn:hover {
+      border-color: var(--rose);
+      color: var(--rose);
+      transform: translateY(-2px);
+    }
+    .donate-custom {
+      margin-top: 1.5rem;
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+    .donate-impact {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      margin-top: 3rem;
+      text-align: left;
+    }
+    .impact-item {
+      background: white;
+      padding: 1.5rem;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-sm);
+    }
+    .impact-amount {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--rose);
+      margin-bottom: 0.5rem;
+    }
+    .impact-text {
+      font-size: 0.85rem;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    /* DIGITAL PRODUCTS SECTION */
+    #digital {
+      padding: 7rem 6vw;
+      background: var(--cream2);
+    }
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+    }
+    .product-card {
+      background: white;
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+      transition: var(--trans);
+      display: flex;
+      flex-direction: column;
+    }
+    .product-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-md);
+    }
+    .product-image {
+      height: 200px;
+      background: linear-gradient(135deg, var(--sage-light) 0%, var(--sage) 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 4rem;
+    }
+    .product-content {
+      padding: 1.5rem;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+    }
+    .product-badge {
+      display: inline-block;
+      background: var(--gold-light);
+      color: var(--forest);
+      font-size: 0.7rem;
+      font-weight: 700;
+      padding: 0.3rem 0.8rem;
+      border-radius: 50px;
+      margin-bottom: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .product-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--forest);
+      margin-bottom: 0.5rem;
+    }
+    .product-desc {
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-bottom: 1rem;
+      line-height: 1.6;
+      flex-grow: 1;
+    }
+    .product-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 1rem;
+      border-top: 1px solid var(--border);
+    }
+    .product-price {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--forest);
+    }
+    .product-price span {
+      font-size: 0.8rem;
+      color: var(--muted);
+      text-decoration: line-through;
+      margin-left: 0.5rem;
+    }
+
+    /* MERCHANDISE SECTION */
+    #merch {
+      padding: 7rem 6vw;
+      background: var(--cream);
+    }
+    .merch-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem;
+    }
+    .merch-card {
+      background: white;
+      border-radius: var(--radius);
+      padding: 1.5rem;
+      text-align: center;
+      box-shadow: var(--shadow-sm);
+      transition: var(--trans);
+    }
+    .merch-card:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-md);
+    }
+    .merch-image {
+      width: 100%;
+      height: 150px;
+      background: linear-gradient(135deg, var(--cream2) 0%, var(--border) 100%);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+    .merch-name {
+      font-weight: 700;
+      color: var(--forest);
+      margin-bottom: 0.3rem;
+    }
+    .merch-price {
+      color: var(--sage-dark);
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
 
     #social-proof {
       background: var(--cream2);
@@ -749,15 +988,20 @@
       #hero { grid-template-columns: 1fr; min-height: auto; padding-top: 4rem; }
       .hero-visual { display: none; }
       .services-grid { grid-template-columns: repeat(2, 1fr); }
+      .products-grid { grid-template-columns: repeat(2, 1fr); }
+      .merch-grid { grid-template-columns: repeat(2, 1fr); }
       .proof-grid { grid-template-columns: 1fr; }
       .trust-stats { grid-template-columns: repeat(2, 1fr); }
       .proof-numbers { grid-template-columns: repeat(2, 1fr); }
       .faq-layout { grid-template-columns: 1fr; gap: 3rem; }
       .faq-aside { position: static; }
+      .donate-impact { grid-template-columns: 1fr; }
     }
     @media (max-width: 600px) {
       nav ul { display: none; }
       .services-grid { grid-template-columns: 1fr; }
+      .products-grid { grid-template-columns: 1fr; }
+      .merch-grid { grid-template-columns: 1fr; }
       .trust-stats { grid-template-columns: repeat(2, 1fr); }
     }
   </style>
@@ -772,8 +1016,9 @@
 <nav>
   <div class="logo">Healthy <em>Minds</em> Journal</div>
   <ul>
-    <li><a href="#services">Topics</a></li>
     <li><a href="#services">Resources</a></li>
+    <li><a href="#digital">Shop</a></li>
+    <li><a href="#donate">Donate</a></li>
     <li><a href="#faq">FAQ</a></li>
     <li><a href="#cta" class="nav-cta">Subscribe Free</a></li>
   </ul>
@@ -788,7 +1033,7 @@
     <p class="hero-sub">Healthy Minds Journal offers compassionate, evidence-informed articles, tools and resources to support your mental wellness — wherever you are in your journey.</p>
     <div class="hero-btns">
       <a href="#services" class="btn-primary">📖 Start Reading</a>
-      <a href="#services" class="btn-outline">Find Support →</a>
+      <a href="#digital" class="btn-secondary">🛒 Shop Resources</a>
     </div>
     <div class="hero-micro">
       <span>✓ Free to read</span>
@@ -901,6 +1146,134 @@
   </div>
 </section>
 
+<!-- DONATION SECTION -->
+<section id="donate">
+  <div class="donate-container">
+    <p class="section-eyebrow reveal">Support Our Mission</p>
+    <h2 class="section-title reveal">Help Us Keep Mental Health<br>Resources Free for Everyone</h2>
+    <p class="section-sub reveal">Your donation directly supports our ability to provide free, evidence-based mental health resources to people in need. Every contribution matters.</p>
+    
+    <div class="donate-amounts reveal">
+      <a href="https://donate.stripe.com/YOUR_LINK_HERE_10" class="donate-btn">$10</a>
+      <a href="https://donate.stripe.com/YOUR_LINK_HERE_25" class="donate-btn">$25</a>
+      <a href="https://donate.stripe.com/YOUR_LINK_HERE_50" class="donate-btn">$50</a>
+      <a href="https://donate.stripe.com/YOUR_LINK_HERE_100" class="donate-btn">$100</a>
+    </div>
+    
+    <a href="https://donate.stripe.com/YOUR_CUSTOM_LINK" class="btn-donate reveal">❤️ Choose Your Amount</a>
+    
+    <p class="donate-custom reveal">Prefer PayPal? <a href="https://paypal.me/yourpaypalid">Donate via PayPal</a> | <a href="https://buy.stripe.com/YOUR_MONTHLY_LINK">Become a monthly supporter</a></p>
+    
+    <div class="donate-impact reveal">
+      <div class="impact-item">
+        <div class="impact-amount">$10</div>
+        <div class="impact-text">Provides one person with a full week of guided mental health resources and support tools.</div>
+      </div>
+      <div class="impact-item">
+        <div class="impact-amount">$25</div>
+        <div class="impact-text">Funds the creation of one new evidence-based article reviewed by licensed therapists.</div>
+      </div>
+      <div class="impact-item">
+        <div class="impact-amount">$50</div>
+        <div class="impact-text">Supports crisis resource updates and maintenance for an entire month, helping thousands.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DIGITAL PRODUCTS SECTION -->
+<section id="digital">
+  <p class="section-eyebrow reveal">Digital Resources</p>
+  <h2 class="section-title reveal">Deepen Your Journey<br>With Guided Resources</h2>
+  <p class="section-sub reveal">Instant downloads created by mental health professionals. Keep them forever, revisit anytime.</p>
+  
+  <div class="products-grid">
+    <div class="product-card reveal">
+      <div class="product-image">📘</div>
+      <div class="product-content">
+        <span class="product-badge">Bestseller</span>
+        <h3 class="product-title">The Anxiety Relief Workbook</h3>
+        <p class="product-desc">A 40-page interactive guide with CBT techniques, grounding exercises, and daily coping strategies. Includes printable worksheets.</p>
+        <div class="product-footer">
+          <span class="product-price">$12 <span>$19</span></span>
+          <a href="https://gumroad.com/l/YOUR_PRODUCT_LINK" class="btn-primary">Buy Now</a>
+        </div>
+      </div>
+    </div>
+    
+    <div class="product-card reveal">
+      <div class="product-image" style="background: linear-gradient(135deg, var(--rose-light) 0%, var(--rose) 100%);">🧘</div>
+      <div class="product-content">
+        <span class="product-badge">New</span>
+        <h3 class="product-title">Sleep Meditation Audio Bundle</h3>
+        <p class="product-desc">5 guided meditations (3+ hours total) for deep sleep, anxiety relief, and morning grounding. MP3 format, lifetime access.</p>
+        <div class="product-footer">
+          <span class="product-price">$15</span>
+          <a href="https://gumroad.com/l/YOUR_AUDIO_LINK" class="btn-primary">Buy Now</a>
+        </div>
+      </div>
+    </div>
+    
+    <div class="product-card reveal">
+      <div class="product-image" style="background: linear-gradient(135deg, var(--gold-light) 0%, var(--gold) 100%);">📓</div>
+      <div class="product-content">
+        <span class="product-badge">Bundle</span>
+        <h3 class="product-title">Healing Journal Prompts Collection</h3>
+        <p class="product-desc">90 days of therapeutic journaling prompts for grief, self-discovery, and emotional processing. PDF + printable formats.</p>
+        <div class="product-footer">
+          <span class="product-price">$9 <span>$15</span></span>
+          <a href="https://gumroad.com/l/YOUR_JOURNAL_LINK" class="btn-primary">Buy Now</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div style="text-align: center; margin-top: 3rem;">
+    <a href="https://gumroad.com/yourstore" class="btn-outline reveal">View All Digital Products →</a>
+  </div>
+</section>
+
+<!-- MERCHANDISE SECTION -->
+<section id="merch">
+  <p class="section-eyebrow reveal">Merchandise</p>
+  <h2 class="section-title reveal">Wear Your Wellness<br>Support the Mission</h2>
+  <p class="section-sub reveal">Every purchase supports free mental health resources. Ethically made, designed with care.</p>
+  
+  <div class="merch-grid">
+    <div class="merch-card reveal">
+      <div class="merch-image">👕</div>
+      <div class="merch-name">"You Are Enough" Tee</div>
+      <div class="merch-price">$28</div>
+      <div id="product-component-1"></div>
+    </div>
+    
+    <div class="merch-card reveal">
+      <div class="merch-image">☕</div>
+      <div class="merch-name">Morning Mindfulness Mug</div>
+      <div class="merch-price">$18</div>
+      <div id="product-component-2"></div>
+    </div>
+    
+    <div class="merch-card reveal">
+      <div class="merch-image">📓</div>
+      <div class="merch-name">Guided Journal</div>
+      <div class="merch-price">$22</div>
+      <div id="product-component-3"></div>
+    </div>
+    
+    <div class="merch-card reveal">
+      <div class="merch-image">🎒</div>
+      <div class="merch-name">Self-Care Tote Bag</div>
+      <div class="merch-price">$24</div>
+      <div id="product-component-4"></div>
+    </div>
+  </div>
+  
+  <div style="text-align: center; margin-top: 3rem;">
+    <a href="https://yourstore.myshopify.com" class="btn-outline reveal">Visit Full Store →</a>
+  </div>
+</section>
+
 <section id="social-proof">
   <p class="section-eyebrow reveal">Real Stories</p>
   <h2 class="section-title reveal">You're in Good Company</h2>
@@ -1001,7 +1374,7 @@
         </div>
         <div class="faq-answer">
           <div class="faq-answer-inner">
-            Yes — completely and always free. Every article, tool, journaling prompt and resource on this site is available to anyone without signing up or paying anything. Our mission is access for everyone.
+            Yes — completely and always free. Every article, tool, journaling prompt and resource on this site is available to anyone without signing up or paying anything. Our mission is access for everyone. Paid products are optional and support our free resources.
           </div>
         </div>
       </div>
@@ -1020,36 +1393,36 @@
 
       <div class="faq-item">
         <div class="faq-question" onclick="toggleFaq(this)">
-          Who writes the articles?
+          How do digital downloads work?
           <span class="faq-icon">+</span>
         </div>
         <div class="faq-answer">
           <div class="faq-answer-inner">
-            Our articles are written by mental health advocates, writers with lived experience, and reviewed by licensed therapists and counsellors. We combine personal humanity with clinical accuracy so that every piece is both trustworthy and genuinely relatable.
+            After purchase, you'll receive an immediate download link via email. All files are yours to keep forever. PDFs can be printed or used digitally. Audio files are MP3 format and work on any device. If you lose your files, just email us and we'll resend them — no charge.
           </div>
         </div>
       </div>
 
       <div class="faq-item">
         <div class="faq-question" onclick="toggleFaq(this)">
-          Can I stay anonymous?
+          What's your refund policy?
           <span class="faq-icon">+</span>
         </div>
         <div class="faq-answer">
           <div class="faq-answer-inner">
-            Absolutely. You never need to create an account or share any personal information to read our content. Even our newsletter only requires your email address — nothing else. Your privacy is deeply important to us.
+            We offer a 30-day happiness guarantee on all digital products. If you're not satisfied, email us for a full refund — no questions asked. For merchandise, we accept returns within 30 days of delivery for store credit or exchange. Donations are non-refundable but 100% tax-deductible where applicable.
           </div>
         </div>
       </div>
 
       <div class="faq-item">
         <div class="faq-question" onclick="toggleFaq(this)">
-          How often is new content published?
+          How are donations used?
           <span class="faq-icon">+</span>
         </div>
         <div class="faq-answer">
           <div class="faq-answer-inner">
-            We publish new articles every week. If you subscribe to our newsletter, you'll receive a curated weekly email with our latest articles, a daily affirmation, and one practical wellness tool — delivered gently to your inbox every Sunday.
+            100% of donations directly support our mission: creating free mental health content, maintaining crisis resource directories, and keeping our platform accessible to everyone. We publish annual transparency reports. Administrative costs are covered by product sales, so your donation goes straight to helping people.
           </div>
         </div>
       </div>
@@ -1097,7 +1470,8 @@
   <div class="footer-links">
     <a href="#">About</a>
     <a href="#">Privacy</a>
-    <a href="#">Disclaimer</a>
+    <a href="#">Terms</a>
+    <a href="#">Refund Policy</a>
     <a href="#">Contact</a>
   </div>
   <p>© 2026 <span>Healthy Minds Journal</span>. Built with ♥ for mental wellness.</p>
@@ -1105,7 +1479,11 @@
 
 <script>
   function toggleFaq(el) {
-n    const item = el.parentElement;\n    const isOpen = item.classList.contains('open');\n    document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));\n    if (!isOpen) item.classList.add('open');\n  }
+    const item = el.parentElement;
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+    if (!isOpen) item.classList.add('open');
+  }
 
   const observer = new IntersectionObserver(entries => {
     entries.forEach((e, i) => {
@@ -1116,6 +1494,98 @@ n    const item = el.parentElement;\n    const isOpen = item.classList.contains(
     });
   }, { threshold: 0.1 });
   document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  // Shopify Buy Button for Merchandise
+  // Replace with your actual Shopify domain and product IDs
+  var client = ShopifyBuy.buildClient({
+    domain: 'your-store.myshopify.com',
+    storefrontAccessToken: 'your-storefront-access-token',
+  });
+
+  var ui = ShopifyBuy.UI.init(client);
+
+  // Product 1: T-Shirt
+  ui.createComponent('product', {
+    id: 'YOUR_PRODUCT_ID_1',
+    node: document.getElementById('product-component-1'),
+    moneyFormat: '%24%7B%7Bamount%7D%7D',
+    options: {
+      product: {
+        layout: 'horizontal',
+        contents: {
+          img: false,
+          title: false,
+          price: false,
+        },
+        text: {
+          button: 'Add to Cart'
+        }
+      },
+      cart: {
+        startOpen: false,
+      }
+    }
+  });
+
+  // Product 2: Mug
+  ui.createComponent('product', {
+    id: 'YOUR_PRODUCT_ID_2',
+    node: document.getElementById('product-component-2'),
+    moneyFormat: '%24%7B%7Bamount%7D%7D',
+    options: {
+      product: {
+        layout: 'horizontal',
+        contents: {
+          img: false,
+          title: false,
+          price: false,
+        },
+        text: {
+          button: 'Add to Cart'
+        }
+      }
+    }
+  });
+
+  // Product 3: Journal
+  ui.createComponent('product', {
+    id: 'YOUR_PRODUCT_ID_3',
+    node: document.getElementById('product-component-3'),
+    moneyFormat: '%24%7B%7Bamount%7D%7D',
+    options: {
+      product: {
+        layout: 'horizontal',
+        contents: {
+          img: false,
+          title: false,
+          price: false,
+        },
+        text: {
+          button: 'Add to Cart'
+        }
+      }
+    }
+  });
+
+  // Product 4: Tote
+  ui.createComponent('product', {
+    id: 'YOUR_PRODUCT_ID_4',
+    node: document.getElementById('product-component-4'),
+    moneyFormat: '%24%7B%7Bamount%7D%7D',
+    options: {
+      product: {
+        layout: 'horizontal',
+        contents: {
+          img: false,
+          title: false,
+          price: false,
+        },
+        text: {
+          button: 'Add to Cart'
+        }
+      }
+    }
+  });
 </script>
 
 </body>
