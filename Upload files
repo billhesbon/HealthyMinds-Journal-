@@ -1,0 +1,15 @@
+<!-- Favicon -->
+<link rel="icon" type="image/svg+xml" href="healthyminds-favicon.svg">
+
+<!-- For Apple devices -->
+<link rel="apple-touch-icon" href="healthyminds-icon.svg">
+
+<!-- In your navigation -->
+<div class="logo">
+  <img src="healthyminds-logo.svg" alt="Healthy Minds Journal" style="height: 40px;">
+</div>
+
+<div class="logo" style="display: flex; align-items: center; gap: 10px;">
+  <img src="healthyminds-favicon.svg" alt="" style="height: 32px;">
+  <span>Healthy <em>Minds</em> Journal</span>
+</div>
