@@ -6,6 +6,8 @@
   <title>Healthy Minds Journal — You Are Not Alone</title>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
   
+  <script src="https://sdks.shopifycdn.com/buy-button/2.0.0/buybutton.js"></script>
+  
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -42,7 +44,6 @@
       overflow-x: hidden;
     }
 
-    /* --- Crisis Ribbon --- */
     .crisis-ribbon {
       background: var(--forest);
       color: rgba(255,255,255,0.8);
@@ -51,14 +52,16 @@
       font-weight: 600;
       letter-spacing: 0.06em;
       padding: 0.55rem 1rem;
-      position: relative;
-      z-index: 1001;
     }
-    .crisis-ribbon a { color: #f9c784; text-decoration: underline; margin-left: 0.3rem; }
+    .crisis-ribbon a {
+      color: #f9c784;
+      text-decoration: none;
+      font-weight: 700;
+      margin-left: 0.3rem;
+    }
 
-    /* --- Navigation --- */
     nav {
-      position: sticky; top: 0; z-index: 1000;
+      position: sticky; top: 0; z-index: 200;
       background: rgba(250,248,244,0.96);
       backdrop-filter: blur(16px);
       border-bottom: 1px solid var(--border);
@@ -66,18 +69,17 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      height: 75px;
+      height: 70px;
     }
     .logo {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 1.6rem;
+      font-size: 1.5rem;
       font-weight: 700;
       color: var(--forest);
       text-decoration: none;
     }
     .logo em { color: var(--sage); font-style: italic; }
-    
-    nav ul { list-style: none; display: flex; gap: 2rem; align-items: center; }
+    nav ul { list-style: none; display: flex; gap: 2rem; }
     nav a {
       text-decoration: none;
       color: var(--muted);
@@ -91,255 +93,345 @@
     .nav-cta {
       background: var(--forest) !important;
       color: white !important;
-      padding: 0.6rem 1.4rem;
+      padding: 0.5rem 1.4rem;
       border-radius: 50px;
     }
+    .nav-cta:hover { background: var(--sage-dark) !important; }
 
-    /* --- Hero Section --- */
     #hero {
-      min-height: 85vh;
+      min-height: 92vh;
       display: grid;
       grid-template-columns: 1.1fr 0.9fr;
       align-items: center;
       gap: 4rem;
-      padding: 4rem 6vw;
+      padding: 6rem 6vw 5rem;
       position: relative;
+      overflow: hidden;
     }
+    .hero-blob {
+      position: absolute;
+      top: -120px; right: -120px;
+      width: 700px; height: 700px;
+      background: radial-gradient(ellipse, var(--sage-light) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero-blob2 {
+      position: absolute;
+      bottom: -100px; left: -80px;
+      width: 500px; height: 500px;
+      background: radial-gradient(ellipse, var(--rose-light) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      background: var(--sage-light);
+      border: 1px solid rgba(107,158,120,0.3);
+      color: var(--sage-dark);
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 0.4rem 1rem;
+      border-radius: 50px;
+      margin-bottom: 1.6rem;
+      animation: rise 0.8s ease both;
+    }
+    .hero-label::before { content: '🌿'; font-size: 0.9rem; }
 
     h1 {
       font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(2.5rem, 5vw, 4.5rem);
+      font-size: clamp(3rem, 5.5vw, 5rem);
+      font-weight: 700;
       line-height: 1.1;
       color: var(--forest);
-      margin-bottom: 1.5rem;
+      margin-bottom: 1.4rem;
+      animation: rise 0.8s 0.1s ease both;
     }
     h1 em { color: var(--sage); font-style: italic; }
 
-    .hero-sub { font-size: 1.1rem; color: var(--muted); margin-bottom: 2.5rem; max-width: 550px; }
+    .hero-sub {
+      font-size: 1.05rem;
+      color: var(--muted);
+      font-weight: 400;
+      max-width: 500px;
+      margin-bottom: 2.5rem;
+      animation: rise 0.8s 0.2s ease both;
+    }
+
+    .hero-btns {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-bottom: 2rem;
+      animation: rise 0.8s 0.3s ease both;
+    }
 
     .btn-primary {
       background: var(--forest);
       color: white;
-      padding: 1rem 2rem;
+      font-size: 0.9rem;
+      font-weight: 700;
+      padding: 0.9rem 2.2rem;
       border-radius: 50px;
       text-decoration: none;
-      font-weight: 700;
-      display: inline-block;
       transition: var(--trans);
-      box-shadow: var(--shadow-sm);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      border: none;
+      cursor: pointer;
     }
-    .btn-primary:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); background: var(--sage-dark); }
+    .btn-primary:hover { background: var(--sage-dark); transform: translateY(-2px); box-shadow: 0 10px 28px rgba(30,58,47,0.25); }
 
-    /* --- Journal Card Visual --- */
-    .hero-visual { position: relative; display: flex; justify-content: center; }
-    .journal-card {
-      background: white;
-      padding: 2.5rem;
-      border-radius: 24px;
-      box-shadow: var(--shadow-lg);
-      width: 100%;
-      max-width: 380px;
-      border: 1px solid var(--border);
+    .btn-secondary {
+      background: var(--sage);
+      color: white;
+      font-size: 0.9rem;
+      font-weight: 700;
+      padding: 0.9rem 2.2rem;
+      border-radius: 50px;
+      text-decoration: none;
+      transition: var(--trans);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      border: none;
+      cursor: pointer;
     }
-    .jc-quote { font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; font-style: italic; color: var(--forest); margin: 1.5rem 0; }
+    .btn-secondary:hover { background: var(--sage-dark); transform: translateY(-2px); }
+
+    .hero-micro {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      font-size: 0.78rem;
+      color: var(--muted);
+      animation: rise 0.8s 0.4s ease both;
+    }
+    .hero-micro span { display: flex; align-items: center; gap: 0.35rem; }
+
+    .hero-visual {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      animation: rise 0.9s 0.2s ease both;
+    }
+    .journal-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 2.2rem;
+      width: 300px;
+      box-shadow: var(--shadow-lg);
+      position: relative;
+      z-index: 2;
+    }
+    .journal-card .jc-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem; }
+    .jc-date { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); }
+    .jc-mood { background: var(--sage-light); color: var(--sage-dark); font-size: 0.7rem; font-weight: 700; padding: 0.25rem 0.75rem; border-radius: 50px; }
+    .jc-quote { font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; font-style: italic; color: var(--forest); line-height: 1.55; margin-bottom: 1.5rem; }
+    .jc-divider { height: 1px; background: var(--border); margin-bottom: 1.5rem; }
+    .jc-topics { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+    .jc-tag { background: var(--cream2); color: var(--muted); font-size: 0.68rem; font-weight: 700; letter-spacing: 0.05em; padding: 0.25rem 0.7rem; border-radius: 50px; border: 1px solid var(--border); }
     
     .floating-card {
       position: absolute;
       background: white;
-      padding: 0.8rem 1.2rem;
-      border-radius: 50px;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 1rem 1.2rem;
       box-shadow: var(--shadow-md);
-      font-weight: 700;
-      font-size: 0.8rem;
       display: flex;
       align-items: center;
-      gap: 0.5rem;
+      gap: 0.7rem;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--ink2);
+      z-index: 3;
       animation: float 4s ease-in-out infinite;
     }
-    .fc-1 { top: -10px; right: 20px; }
-    .fc-2 { bottom: 30px; left: -20px; animation-delay: 2s; }
+    .fc1 { top: -20px; right: -30px; }
+    .fc2 { bottom: 20px; left: -40px; animation-delay: 2s; }
+    @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
+    @keyframes rise { from { opacity: 0; transform: translateY(22px); } to { opacity: 1; transform: none; } }
 
-    @keyframes float {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-12px); }
-    }
+    /* Trust Section */
+    #trust { background: var(--forest); padding: 4rem 6vw; }
+    .trust-inner { max-width: 900px; margin: 0 auto; text-align: center; }
+    .trust-mission { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.4rem, 2.5vw, 2rem); font-style: italic; color: rgba(255,255,255,0.9); margin-bottom: 3rem; line-height: 1.5; }
+    .trust-mission span { color: #a8d5b0; }
+    .trust-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: rgba(255,255,255,0.1); border-radius: 16px; overflow: hidden; margin-bottom: 2.5rem; }
+    .trust-stat { background: rgba(255,255,255,0.05); padding: 2rem 1rem; text-align: center; }
+    .trust-stat .ts-num { font-family: 'Cormorant Garamond', serif; font-size: 2rem; font-weight: 700; color: #a8d5b0; }
+    .trust-stat .ts-label { font-size: 0.75rem; color: rgba(255,255,255,0.55); text-transform: uppercase; }
 
-    /* --- Services Grid --- */
-    #services { padding: 8rem 6vw; }
-    .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 4rem; }
-    .service-card {
-      background: white;
-      padding: 2.5rem;
-      border-radius: var(--radius);
-      border: 1px solid var(--border);
-      text-decoration: none;
-      color: inherit;
-      transition: var(--trans);
-    }
-    .service-card:hover { transform: translateY(-8px); border-color: var(--sage); box-shadow: var(--shadow-md); }
-    .sc-icon { font-size: 2rem; margin-bottom: 1rem; display: block; }
+    /* Services Section */
+    #services { padding: 7rem 6vw; background: var(--cream); }
+    .section-eyebrow { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--sage); margin-bottom: 0.6rem; }
+    .section-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(2rem, 3.5vw, 2.8rem); color: var(--forest); margin-bottom: 0.8rem; }
+    .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.2rem; }
+    .service-card { background: var(--white); border: 1px solid var(--border); border-radius: var(--radius); padding: 2rem; transition: var(--trans); text-decoration: none; display: block; color: inherit; position: relative; overflow: hidden; }
+    .service-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-md); }
+    .service-card::before { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 3px; background: var(--sage); transform: scaleX(0); transition: var(--trans); }
+    .service-card:hover::before { transform: scaleX(1); }
 
-    /* --- FAQ Accordion --- */
-    #faq { padding: 8rem 6vw; background: var(--cream2); }
-    .faq-container { max-width: 800px; margin: 0 auto; }
+    /* FAQ Section */
+    #faq { padding: 7rem 6vw; background: var(--cream); }
+    .faq-layout { display: grid; grid-template-columns: 1fr 1.8fr; gap: 6rem; }
     .faq-item { border-bottom: 1px solid var(--border); }
-    .faq-question {
-      width: 100%;
-      padding: 1.5rem 0;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      background: none;
-      border: none;
-      text-align: left;
-      font-family: 'Plus Jakarta Sans', sans-serif;
-      font-weight: 700;
-      color: var(--forest);
-      cursor: pointer;
-    }
-    .faq-answer {
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 0.4s ease;
-      color: var(--muted);
-      font-size: 0.95rem;
-    }
-    .faq-item.active .faq-answer { max-height: 200px; padding-bottom: 1.5rem; }
+    .faq-question { padding: 1.4rem 0; cursor: pointer; display: flex; justify-content: space-between; font-weight: 600; color: var(--forest); }
+    .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.4s ease; color: var(--muted); font-size: 0.92rem; }
+    .faq-item.open .faq-answer { max-height: 200px; padding-bottom: 1.4rem; }
+    .faq-icon { transition: transform 0.3s ease; }
+    .faq-item.open .faq-icon { transform: rotate(45deg); }
 
-    /* --- Reveal Animation --- */
-    .reveal { opacity: 0; transform: translateY(30px); transition: 0.8s all ease; }
-    .reveal.visible { opacity: 1; transform: translateY(0); }
+    /* Utilities */
+    .reveal { opacity: 0; transform: translateY(26px); transition: opacity 0.7s ease, transform 0.7s ease; }
+    .reveal.visible { opacity: 1; transform: none; }
 
-    /* --- Footer --- */
-    footer { background: var(--forest); color: white; padding: 4rem 6vw; text-align: center; }
-    .footer-links { margin: 2rem 0; display: flex; justify-content: center; gap: 2rem; }
-    .footer-links a { color: rgba(255,255,255,0.7); text-decoration: none; font-size: 0.8rem; }
-
-    @media (max-width: 900px) {
+    @media (max-width: 960px) {
       #hero { grid-template-columns: 1fr; text-align: center; }
-      .hero-sub { margin-left: auto; margin-right: auto; }
-      .hero-visual { margin-top: 3rem; }
+      .hero-visual { display: none; }
+      .services-grid { grid-template-columns: 1fr; }
+      .faq-layout { grid-template-columns: 1fr; }
       nav ul { display: none; }
     }
   </style>
 </head>
 <body>
 
-  <div class="crisis-ribbon">
-    In immediate danger? <a href="#">Call or Text 988 (USA)</a> or find your <a href="#">Local Helpline</a>.
-  </div>
+<div class="crisis-ribbon">
+  Immediate support needed? <a href="#">Find a local helpline here</a> or text "HOME" to 741741.
+</div>
 
-  <nav>
-    <a href="#" class="logo">Healthy <em>Minds</em> Journal</a>
-    <ul>
-      <li><a href="#services">Resources</a></li>
-      <li><a href="#faq">Support FAQ</a></li>
-      <li><a href="#" class="nav-cta">Join Community</a></li>
-    </ul>
-  </nav>
+<nav>
+  <a href="#" class="logo">Healthy <em>Minds</em> Journal</a>
+  <ul>
+    <li><a href="#services">Resources</a></li>
+    <li><a href="#faq">FAQ</a></li>
+    <li><a href="#cta" class="nav-cta">Subscribe Free</a></li>
+  </ul>
+</nav>
 
-  <main>
-    <section id="hero">
-      <div class="hero-text">
-        <h1>You Don't Have To Face This <em>Alone.</em></h1>
-        <p class="hero-sub">Providing compassionate, evidence-based resources and a safe harbor for your mental wellness journey. Everyone deserves a healthy mind.</p>
-        <div class="hero-btns">
-          <a href="#services" class="btn-primary">Explore Resources</a>
-        </div>
-      </div>
-
-      <div class="hero-visual">
-        <div class="floating-card fc-1"><span>🧘</span> Daily Calm</div>
-        <div class="journal-card">
-          <div class="jc-date" style="font-size: 0.7rem; color: var(--muted); text-transform: uppercase; letter-spacing: 1px;">April 19, 2026</div>
-          <p class="jc-quote">"Your mental health is a priority. Your happiness is an essential. Your self-care is a necessity."</p>
-          <div style="height: 1px; background: var(--border); margin: 1rem 0;"></div>
-          <div style="display: flex; gap: 0.5rem;">
-            <span style="background: var(--sage-light); padding: 4px 10px; border-radius: 20px; font-size: 0.7rem;">Mindfulness</span>
-            <span style="background: var(--rose-light); padding: 4px 10px; border-radius: 20px; font-size: 0.7rem;">Self-Care</span>
-          </div>
-        </div>
-        <div class="floating-card fc-2"><span>🌱</span> Growing Together</div>
-      </div>
-    </section>
-
-    <section id="services">
-      <div style="text-align: center; max-width: 700px; margin: 0 auto;" class="reveal">
-        <h2 style="font-family: 'Cormorant Garamond', serif; font-size: 3rem; color: var(--forest);">How we support you</h2>
-        <p style="color: var(--muted);">Explore our library of curated content designed to help you navigate the complexities of the human experience.</p>
-      </div>
-
-      <div class="services-grid">
-        <a href="#" class="service-card reveal">
-          <span class="sc-icon">📝</span>
-          <h3>Guided Journaling</h3>
-          <p>Prompt-based exercises to help you process emotions and find clarity in daily life.</p>
-        </a>
-        <a href="#" class="service-card reveal">
-          <span class="sc-icon">🎧</span>
-          <h3>Audio Meditations</h3>
-          <p>Short, accessible grounding sessions for anxiety and stress relief.</p>
-        </a>
-        <a href="#" class="service-card reveal">
-          <span class="sc-icon">📚</span>
-          <h3>Expert Articles</h3>
-          <p>Deep dives into psychology and wellness written by mental health professionals.</p>
-        </a>
-      </div>
-    </section>
-
-    <section id="faq">
-      <div class="faq-container reveal">
-        <h2 style="font-family: 'Cormorant Garamond', serif; font-size: 2.5rem; margin-bottom: 2rem; color: var(--forest); text-align: center;">Frequently Asked Questions</h2>
-        
-        <div class="faq-item">
-          <button class="faq-question">Is this a substitute for therapy? <span>+</span></button>
-          <div class="faq-answer">
-            <p>No. While our resources are evidence-informed, they are designed to support your wellness journey, not replace professional medical advice or clinical therapy.</p>
-          </div>
-        </div>
-
-        <div class="faq-item">
-          <button class="faq-question">Is my data private? <span>+</span></button>
-          <div class="faq-answer">
-            <p>Absolutely. We prioritize your anonymity and do not track personal identifiers in your journaling sessions.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    <div class="logo" style="color: white;">Healthy <em>Minds</em> Journal</div>
-    <div class="footer-links">
-      <a href="#">Privacy Policy</a>
-      <a href="#">Terms of Service</a>
-      <a href="#">Contact Us</a>
+<section id="hero">
+  <div class="hero-blob"></div>
+  <div class="hero-blob2"></div>
+  <div class="hero-text">
+    <div class="hero-label">A safe space for your mind</div>
+    <h1>You Don't Have<br>to Face This <em>Alone</em></h1>
+    <p class="hero-sub">Healthy Minds Journal offers compassionate, evidence-informed articles, tools and resources to support your mental wellness — wherever you are in your journey.</p>
+    <div class="hero-btns">
+      <a href="#services" class="btn-primary">📖 Start Reading</a>
+      <a href="#" class="btn-secondary">🛒 Shop Resources</a>
     </div>
-    <p style="font-size: 0.75rem; opacity: 0.6;">&copy; 2026 Healthy Minds Journal. Made with 🤍 for you.</p>
-  </footer>
+    <div class="hero-micro">
+      <span>✓ Free to read</span>
+      <span>✓ No sign-up needed</span>
+      <span>✓ Judgment-free</span>
+    </div>
+  </div>
+  <div class="hero-visual">
+    <div class="floating-card fc1"><span class="fc-icon">🧘</span> Mindfulness Guide</div>
+    <div class="journal-card">
+      <div class="jc-top">
+        <span class="jc-date">Today's reflection</span>
+        <span class="jc-mood">Feeling hopeful</span>
+      </div>
+      <div class="jc-quote">"You are allowed to be both a masterpiece and a work in progress simultaneously."</div>
+      <div class="jc-divider"></div>
+      <div class="jc-topics">
+        <span class="jc-tag">Anxiety</span>
+        <span class="jc-tag">Mindfulness</span>
+        <span class="jc-tag">Self-Care</span>
+      </div>
+    </div>
+    <div class="floating-card fc2"><span class="fc-icon">💚</span> 50,000+ readers</div>
+  </div>
+</section>
 
-  <script>
-    // FAQ Accordion Logic
-    document.querySelectorAll('.faq-question').forEach(button => {
-      button.addEventListener('click', () => {
-        const item = button.parentElement;
-        item.classList.toggle('active');
-        button.querySelector('span').textContent = item.classList.contains('active') ? '−' : '+';
-      });
+<section id="trust">
+  <div class="trust-inner">
+    <p class="trust-mission">Our mission is to make <span>mental health support</span> accessible, human and judgment-free.</p>
+    <div class="trust-stats reveal">
+      <div class="trust-stat"><div class="ts-num">500+</div><div class="ts-label">Free Articles</div></div>
+      <div class="trust-stat"><div class="ts-num">50K+</div><div class="ts-label">Monthly Readers</div></div>
+      <div class="trust-stat"><div class="ts-num">100%</div><div class="ts-label">Reviewed Content</div></div>
+      <div class="trust-stat"><div class="ts-num">40+</div><div class="ts-label">Countries</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="services">
+  <p class="section-eyebrow reveal">What We Offer</p>
+  <h2 class="section-title reveal">Everything You Need</h2>
+  <div class="services-grid">
+    <a href="#" class="service-card reveal">
+      <div class="sc-icon">📝</div>
+      <h3>Articles & Guides</h3>
+      <p>Deep-dive reads on anxiety, grief, and healing.</p>
+    </a>
+    <a href="#" class="service-card reveal">
+      <div class="sc-icon">🧘</div>
+      <h3>Mindfulness Tools</h3>
+      <p>Breathing exercises and guided meditations.</p>
+    </a>
+    <a href="#" class="service-card reveal">
+      <div class="sc-icon">📘</div>
+      <h3>Workbooks</h3>
+      <p>Interactive tools for daily self-reflection.</p>
+    </a>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="faq-layout">
+    <div class="faq-aside">
+      <h2>Common Questions</h2>
+      <p>Everything you need to know about our community.</p>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item">
+        <div class="faq-question">Is this service really free? <span class="faq-icon">+</span></div>
+        <div class="faq-answer">Yes, all our educational content and guides are 100% free to access. We are supported by community donations and our small merch shop.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">How often is new content added? <span class="faq-icon">+</span></div>
+        <div class="faq-answer">We publish new therapist-reviewed articles and mindfulness exercises every Tuesday and Thursday.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer style="background: #0f2318; color: white; padding: 4rem 6vw; text-align: center;">
+  <div class="logo" style="color: white; margin-bottom: 1rem;">Healthy <em>Minds</em> Journal</div>
+  <p style="opacity: 0.6; font-size: 0.8rem;">© 2026 Healthy Minds Journal. All rights reserved.</p>
+</footer>
+
+<script>
+  // FAQ Toggle Logic
+  document.querySelectorAll('.faq-question').forEach(q => {
+    q.addEventListener('click', () => {
+      const item = q.parentElement;
+      item.classList.toggle('open');
+      const icon = q.querySelector('.faq-icon');
+      icon.textContent = item.classList.contains('open') ? '×' : '+';
     });
+  });
 
-    // Scroll Reveal Logic
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-        }
-      });
-    }, { threshold: 0.1 });
+  // Intersection Observer for Reveal Animations
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.1 });
 
-    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-  </script>
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
 
 </body>
 </html>
