@@ -1,193 +1,63 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-
-  <title>Blog | Healthy Minds Journal</title>
-  <meta name="description" content="Evidence-based mental health articles on anxiety, panic attacks, mindfulness, and emotional wellbeing."/>
-  <meta name="author" content="Healthy Minds Journal"/>
-
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Plus+Jakarta+Sans:wght@300;400;600&display=swap" rel="stylesheet"/>
-
+  <meta charset="UTF-8">
+  <title>Healthy Minds Journal | Articles</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
-    :root {
-      --bg: #faf8f4;
-      --text: #2b2b2b;
-      --muted: #6b6b6b;
-      --primary: #1e3a2f;
-      --accent: #6b9e78;
-      --border: #e6e0d8;
-    }
-
-    * { margin:0; padding:0; box-sizing:border-box; }
-
     body {
-      font-family: 'Plus Jakarta Sans', sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.7;
+      font-family: system-ui, Arial;
+      background: #faf8f4;
+      margin: 0;
+      padding: 40px;
     }
 
-    header {
-      padding: 60px 6vw 30px;
-      border-bottom: 1px solid var(--border);
-      background: white;
-    }
-
-    .title {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 3rem;
-      color: var(--primary);
-      margin-bottom: 10px;
-    }
-
-    .subtitle {
-      color: var(--muted);
-      max-width: 600px;
-    }
-
-    .container {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 40px 6vw;
+    h1 {
+      color: #1e3a2f;
     }
 
     .grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
+      gap: 16px;
+      max-width: 900px;
     }
 
     .card {
       background: white;
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      padding: 22px;
-      transition: 0.25s ease;
+      padding: 20px;
+      border: 1px solid #e5ddd5;
+      border-radius: 12px;
       text-decoration: none;
-      color: inherit;
+      color: #1a1a1a;
+      transition: 0.2s;
     }
 
     .card:hover {
-      transform: translateY(-4px);
-      border-color: var(--accent);
+      transform: translateY(-2px);
+      border-color: #6b9e78;
     }
 
     .tag {
-      font-size: 0.75rem;
-      color: var(--accent);
+      font-size: 12px;
+      color: #6b9e78;
       font-weight: 600;
-      text-transform: uppercase;
-      margin-bottom: 10px;
-      display: inline-block;
-    }
-
-    .card h3 {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.4rem;
-      margin-bottom: 10px;
-      color: var(--primary);
-    }
-
-    .card p {
-      font-size: 0.95rem;
-      color: var(--muted);
-      margin-bottom: 15px;
-    }
-
-    .meta {
-      font-size: 0.8rem;
-      color: var(--muted);
-    }
-
-    footer {
-      margin-top: 60px;
-      padding: 30px;
-      text-align: center;
-      font-size: 0.85rem;
-      color: var(--muted);
-      border-top: 1px solid var(--border);
-    }
-
-    @media (max-width: 900px) {
-      .grid { grid-template-columns: 1fr 1fr; }
-    }
-
-    @media (max-width: 600px) {
-      .grid { grid-template-columns: 1fr; }
-      .title { font-size: 2.2rem; }
     }
   </style>
-
 </head>
 
 <body>
 
-<header>
-  <h1 class="title">Mental Health Blog</h1>
-  <p class="subtitle">
-    Evidence-based insights on anxiety, panic attacks, mindfulness, and emotional resilience.
-    Written for clarity, grounded in clinical understanding.
-  </p>
-</header>
+<h1>Healthy Minds Journal — Articles</h1>
 
-<main class="container">
+<div class="grid">
 
-  <div class="grid">
+  <a class="card" href="/HealthyMinds-Journal-/blog/panic-attacks.html">
+    <div class="tag">Anxiety</div>
+    <h2>How to Stop Panic Attacks</h2>
+    <p>Clinical guide to managing panic episodes using CBT-based techniques.</p>
+  </a>
 
-```
-<a class="card" href="/blog/panic-attacks.html">
-  <span class="tag">Anxiety</span>
-  <h3>How to Stop Panic Attacks</h3>
-  <p>Clinical techniques to interrupt panic cycles using CBT, grounding, and physiological regulation.</p>
-  <div class="meta">Updated 2026 · 8 min read</div>
-</a>
-
-<a class="card" href="#">
-  <span class="tag">Mindfulness</span>
-  <h3>Grounding Techniques for Anxiety</h3>
-  <p>Practical sensory-based methods to reduce overwhelm and restore cognitive control.</p>
-  <div class="meta">Coming soon</div>
-</a>
-
-<a class="card" href="#">
-  <span class="tag">CBT</span>
-  <h3>Cognitive Behavioral Therapy Explained</h3>
-  <p>How thought restructuring changes emotional and physiological responses.</p>
-  <div class="meta">Coming soon</div>
-</a>
-
-<a class="card" href="#">
-  <span class="tag">Sleep</span>
-  <h3>How Anxiety Disrupts Sleep</h3>
-  <p>The neurobiology of insomnia and practical recovery strategies.</p>
-  <div class="meta">Coming soon</div>
-</a>
-
-<a class="card" href="#">
-  <span class="tag">Stress</span>
-  <h3>Stress Regulation in High-Pressure Environments</h3>
-  <p>How professionals manage chronic stress using cognitive and behavioral tools.</p>
-  <div class="meta">Coming soon</div>
-</a>
-
-<a class="card" href="#">
-  <span class="tag">Emotions</span>
-  <h3>Understanding Emotional Dysregulation</h3>
-  <p>Why emotions escalate and how to restore baseline stability.</p>
-  <div class="meta">Coming soon</div>
-</a>
-```
-
-  </div>
-
-</main>
-
-<footer>
-  © 2026 Healthy Minds Journal — Evidence-based mental health education
-</footer>
+</div>
 
 </body>
 </html>
