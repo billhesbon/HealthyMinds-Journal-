@@ -1,0 +1,15 @@
+/content
+  /blog
+    panic-attacks.md
+    anxiety-guide.md
+
+/src
+  /pages
+    index.astro
+    /blog
+      [slug].astro
+
+/public
+  /images
+
+/scripts
