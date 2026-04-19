@@ -1,1 +1,253 @@
+<!DOCTYPE html>
 
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+  <!-- SEO -->
+
+  <title>How to Stop Panic Attacks | Healthy Minds Journal</title>
+  <meta name="description" content="Learn how to stop panic attacks using evidence-based techniques including CBT, breathing control, grounding, and cognitive strategies."/>
+  <meta name="keywords" content="panic attacks, anxiety, CBT, grounding techniques, breathing exercises, mental health"/>
+  <meta name="author" content="Healthy Minds Journal"/>
+
+  <!-- Open Graph -->
+
+  <meta property="og:title" content="How to Stop Panic Attacks"/>
+  <meta property="og:description" content="Professional, evidence-based guide to managing panic attacks."/>
+  <meta property="og:type" content="article"/>
+
+  <!-- Fonts -->
+
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Plus+Jakarta+Sans:wght@300;400;600&display=swap" rel="stylesheet"/>
+
+  <style>
+    :root {
+      --bg: #faf8f4;
+      --text: #2b2b2b;
+      --muted: #6b6b6b;
+      --primary: #1e3a2f;
+      --accent: #6b9e78;
+      --border: #e6e0d8;
+    }
+
+    * { margin:0; padding:0; box-sizing:border-box; }
+
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+    }
+
+    nav {
+      padding: 20px 6vw;
+      border-bottom: 1px solid var(--border);
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      background:white;
+    }
+
+    .logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size:1.4rem;
+      color: var(--primary);
+      font-weight:700;
+    }
+
+    nav a {
+      text-decoration:none;
+      color:var(--muted);
+      margin-left:20px;
+      font-size:0.85rem;
+      text-transform:uppercase;
+      font-weight:600;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 60px 20px;
+    }
+
+    .title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size:2.8rem;
+      color:var(--primary);
+      margin-bottom:10px;
+    }
+
+    .subtitle {
+      color:var(--muted);
+      font-style:italic;
+      margin-bottom:30px;
+    }
+
+    h2 {
+      margin-top:40px;
+      margin-bottom:15px;
+      color:var(--primary);
+      font-size:1.6rem;
+    }
+
+    p {
+      margin-bottom:18px;
+      font-size:1.05rem;
+    }
+
+    ul {
+      margin-left:20px;
+      margin-bottom:20px;
+    }
+
+    li { margin-bottom:10px; }
+
+    .box {
+      background:white;
+      border-left:4px solid var(--accent);
+      padding:20px;
+      margin:25px 0;
+      border-radius:6px;
+      border:1px solid var(--border);
+    }
+
+    .highlight {
+      background: var(--primary);
+      color:white;
+      padding:25px;
+      border-radius:8px;
+      margin:30px 0;
+      font-style:italic;
+      text-align:center;
+    }
+
+    .cta {
+      background:#eef5ef;
+      padding:30px;
+      border-radius:10px;
+      margin-top:40px;
+      text-align:center;
+      border:1px solid var(--border);
+    }
+
+    footer {
+      margin-top:60px;
+      padding:30px;
+      text-align:center;
+      font-size:0.85rem;
+      color:var(--muted);
+      border-top:1px solid var(--border);
+    }
+  </style>
+
+</head>
+
+<body>
+
+<nav>
+  <div class="logo">Healthy Minds Journal</div>
+  <div>
+    <a href="/">Home</a>
+    <a href="/#services">Resources</a>
+    <a href="/#faq">FAQ</a>
+  </div>
+</nav>
+
+<article class="container">
+
+  <h1 class="title">How to Stop Panic Attacks</h1>
+  <p class="subtitle">A Professional, Evidence-Based Guide</p>
+
+  <p>Panic attacks are acute episodes of intense fear accompanied by strong physiological reactions. While often perceived as dangerous, they are a misfiring of the body's threat detection system rather than a true medical emergency.</p>
+
+  <h2>Understanding the Panic Cycle</h2>
+  <p>Panic is sustained by a feedback loop between body and cognition:</p>
+
+  <ul>
+    <li>Initial physical trigger (elevated heart rate)</li>
+    <li>Catastrophic interpretation (“Something is wrong”)</li>
+    <li>Adrenaline surge</li>
+    <li>Escalation of symptoms</li>
+  </ul>
+
+  <p>Intervention requires disrupting this loop at both the physiological and cognitive levels.</p>
+
+  <h2>Immediate Techniques</h2>
+
+  <div class="box">
+    <strong>Controlled Breathing</strong>
+    <p>Use slow nasal inhalation (4 seconds) and extended exhalation (6 seconds) to regulate carbon dioxide levels and stabilize the nervous system.</p>
+  </div>
+
+  <div class="box">
+    <strong>5-4-3-2-1 Grounding</strong>
+    <p>Shift attention outward using sensory awareness to interrupt internal threat processing.</p>
+  </div>
+
+  <div class="box">
+    <strong>Cold Exposure</strong>
+    <p>Applying cold water or a cold object activates parasympathetic response and reduces heart rate.</p>
+  </div>
+
+  <div class="box">
+    <strong>Cognitive Reframing</strong>
+    <p>Replace catastrophic thoughts with accurate interpretations: “This is anxiety, not danger.”</p>
+  </div>
+
+  <h2>Long-Term Treatment</h2>
+  <p>Cognitive Behavioral Therapy (CBT) is the most validated treatment model, focusing on:</p>
+
+  <ul>
+    <li>Cognitive restructuring</li>
+    <li>Exposure to feared sensations</li>
+    <li>Behavioral adaptation</li>
+  </ul>
+
+  <p>Clinical outcomes show sustained improvement in a majority of patients when protocols are followed consistently.</p>
+
+  <h2>Lifestyle Factors</h2>
+
+  <ul>
+    <li>Reduce caffeine and stimulants</li>
+    <li>Maintain consistent sleep patterns</li>
+    <li>Engage in regular aerobic activity</li>
+  </ul>
+
+  <div class="highlight">
+    “Panic persists not because it is dangerous, but because it is feared.”
+  </div>
+
+  <h2>When to Seek Professional Help</h2>
+  <p>Consult a healthcare professional if panic begins to interfere with daily functioning, avoidance behaviors increase, or symptoms intensify over time.</p>
+
+  <div class="cta">
+    <h2>Explore More</h2>
+    <p>Browse additional mental wellness resources, tools, and guides.</p>
+    <a href="/#services">View Resources →</a>
+  </div>
+
+</article>
+
+<footer>
+  © 2026 Healthy Minds Journal — Built for accessible mental wellness
+</footer>
+
+<!-- Structured Data -->
+
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "Article",
+ "headline": "How to Stop Panic Attacks",
+ "description": "Evidence-based techniques to manage panic attacks using CBT and clinical psychology.",
+ "author": {
+   "@type": "Organization",
+   "name": "Healthy Minds Journal"
+ }
+}
+</script>
+
+</body>
+</html>
